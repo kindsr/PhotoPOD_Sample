@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PhotoPOD.Views.M100_QrScanPage"
+             Title="{Binding Title}">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <forms:ZXingScannerView Grid.Column="0" Grid.Row="0" x:Name="scanner"
+                                HeightRequest="500"
+                                HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"
+                                IsScanning="{Binding IsScanning}" 
+                                IsAnalyzing="{Binding IsAnalyzing}" 
+                                Result="{Binding Result, Mode=TwoWay}"
+                                ScanResultCommand="{Binding QRScanResultCommand}" />
+
+        <forms:ZXingDefaultOverlay Grid.Column="0" Grid.Row="0"
+                                   TopText="{Binding TopText}" 
+                                   ShowFlashButton="{Binding ShowFlashButton}"
+                                   BottomText="{Binding BottomText}" 
+                                   Opacity="0.9" />
+        <Button Grid.Row="1" Text="Click Me" Command="{Binding NavigateCommand}"/>
+    </Grid>
+</ContentPage>

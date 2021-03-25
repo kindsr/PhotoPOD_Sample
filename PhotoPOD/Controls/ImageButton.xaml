@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PhotoPOD.Controls.ImageButton">
+    <ContentView.Content>
+        <Frame CornerRadius="4" HasShadow="false" OutlineColor="Silver" BackgroundColor="#DEDEDE">
+            <StackLayout Orientation="Vertical">
+                <Image x:Name="innerImage" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="innerLabel" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" IsVisible="False"/>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

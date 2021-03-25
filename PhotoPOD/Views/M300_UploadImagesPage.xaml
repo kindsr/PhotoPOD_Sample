@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PhotoPOD.Views.M300_UploadImagesPage"
+             Title="{Binding Title}">
+    <StackLayout Padding="20">
+        <Button Text="Select images from gallery" Command="{Binding SelectImagesCommand}"/>
+        <!--<Button Text="Select videos from gallery" Command="{Binding SelectVideosCommand}"/>-->
+
+        <flv:FlowListView FlowColumnCount="2" x:Name="listItems" FlowItemsSource="{Binding MediaList}"
+                    SeparatorVisibility="None"
+                    HasUnevenRows="false" RowHeight="150" >
+            <flv:FlowListView.FlowColumnTemplate>
+                <DataTemplate >
+                    <Grid>
+                        <ffimageloading:CachedImage DownsampleToViewSize="true" HeightRequest="150"  Source="{Binding FilePath}"  Aspect="AspectFill" HorizontalOptions="FillAndExpand" Margin="2,2">
+                        </ffimageloading:CachedImage>
+                        <!--<Image Source="play" IsVisible="false" HorizontalOptions="End" VerticalOptions="End">
+                            <Image.Triggers>
+                                <DataTrigger TargetType="Image" Binding="{Binding Type}" Value="Video">
+                                    <Setter Property="IsVisible" Value="True" />
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>-->
+                    </Grid>
+                </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
+        </flv:FlowListView>
+        <!--<ScrollView>
+            <StackLayout x:Name="ImageList">
+
+            </StackLayout>
+        </ScrollView>-->
+        <Button Text="Send" Command="{Binding ClickCommand}"/>
+    </StackLayout>
+</ContentPage>

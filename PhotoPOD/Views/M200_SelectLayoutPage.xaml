@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="PhotoPOD.Views.M200_SelectLayoutPage"
+             xmlns:controls="clr-namespace:PhotoPOD.Controls"
+             Title="{Binding Title}">
+
+    <StackLayout>
+        <Label Text="{Binding ScannedText}"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <controls:ImageButton x:Name="btnLayout1" Grid.Row="0" Grid.Column="0"
+                                  Source="layout1.png" ButtonText="Layout 1"
+                                  Command="{Binding ClickCommand}"
+                                  CommandParameter="{Binding Source={x:Reference btnLayout1}, Path=ButtonText}"/>
+            <controls:ImageButton x:Name="btnLayout2" Grid.Row="0" Grid.Column="1"
+                                  Source="layout2.png" ButtonText="Layout 2"
+                                  Command="{Binding ClickCommand}"
+                                  CommandParameter="{Binding Source={x:Reference btnLayout2}, Path=ButtonText}"/>
+            <controls:ImageButton x:Name="btnLayout3" Grid.Row="1" Grid.Column="0"
+                                  Source="layout3.png" ButtonText="Layout 3"
+                                  Command="{Binding ClickCommand}"
+                                  CommandParameter="{Binding Source={x:Reference btnLayout3}, Path=ButtonText}"/>
+            <controls:ImageButton x:Name="btnLayout4" Grid.Row="1" Grid.Column="1"
+                                  Source="layout4.png" ButtonText="Layout 4"
+                                  Command="{Binding ClickCommand}"
+                                  CommandParameter="{Binding Source={x:Reference btnLayout4}, Path=ButtonText}"/>
+        </Grid>
+
+    </StackLayout>
+</ContentPage>
